@@ -1,0 +1,1218 @@
+Subarray with given sum
+
+class Solution
+{
+    //Function to find a continuous sub-array which adds up to a given number.
+    static ArrayList<Integer> subarraySum(int[] arr, int n, int s) 
+    {
+        int i = 0;
+        int j = 0;
+        int sum = 0;
+        ArrayList<Integer> result = new ArrayList<>();
+        if(s==0){
+            result.add(-1);
+            return result;
+        }
+        while (j < n) {
+            sum += arr[j];
+            
+            while (sum > s) {
+                sum -= arr[i];
+                i++;
+            }
+            
+            if (sum == s) {
+                result.add(i + 1);
+                result.add(j + 1);
+                return result;
+            }
+            
+            j++;
+        }
+        
+        result.add(-1); // If no subarray is found, return [-1]
+        return result;
+    }
+}
+
+Missing number in array
+class Solution {
+    int missingNumber(int array[], int n) {
+
+        int num1=0;
+        for(int i=0;i<array.length;i++){
+            num1+=array[i];
+        }
+        int num2=0;
+        for(int i=1;i<=n;i++){
+            num2+=i;
+        }
+        return num2-num1;
+    }
+}
+
+
+Kadane's Algorithm
+class Solution{
+
+    // arr: input array
+    // n: size of array
+    //Function to find the sum of contiguous subarray with maximum sum.
+    long maxSubarraySum(int arr[], int n){
+        
+    
+        long sum=0;
+        long max=Long.MIN_VALUE;
+        for(int i=0;i<arr.length;i++){
+            sum+=arr[i];
+            if(sum>max){
+                max=sum;
+            }
+            if(sum<0){
+                sum=0;
+            }
+        }
+        return max;
+        
+    }
+    
+}
+
+
+Leaders in an array
+class Solution{
+    //Function to find the leaders in the array.
+    static ArrayList<Integer> leaders(int arr[], int n){
+        // Your code here
+        Stack<Integer> stack=new Stack<Integer>();
+        for(int i=arr.length-1;i>=0;i--){
+            if(stack.isEmpty()){
+                stack.push(arr[i]);
+            }
+            else if(stack.peek()<=arr[i]){
+                stack.push(arr[i]);
+            }
+            
+        }
+        ArrayList<Integer> result=new ArrayList<Integer>();
+        while(!stack.isEmpty()){
+                result.add(stack.pop());
+        }  
+        return result;
+    }
+}
+
+
+Majority Element
+Given an array A of N elements. Find the majority element in the array. A majority element in an array A of size N is an element that appears more than N/2 times in the array.
+ class Solution
+{
+    static int majorityElement(int a[], int size)
+    {
+        // your code here
+        HashMap<Integer,Integer> map=new HashMap<Integer,Integer>();
+        for(int i=0;i<size;i++){
+            map.put(a[i],map.getOrDefault(a[i],0)+1);
+        }
+        int m=size/2;
+        for(Integer key:map.keySet()){
+            if(map.get(key)>m){
+                return key;
+            }
+        }
+        return -1;
+    }
+}
+
+
+Parenthesis Checker
+
+class Solution
+{
+    //Function to check if brackets are balanced or not.
+    static boolean ispar(String x)
+    {
+        // add your code here
+        // Deque<Character> stack=new ArrayDeque<Character>();
+        // for(int i=0;i<x.length();i++){
+        //     char n=x.charAt(i);
+            
+        //     if(n=='(' || n=='[' || n=='{'){
+        //         stack.push(n);
+        //         continue;
+        //     }
+            
+        //     if(stack.isEmpty()){
+        //         return false;
+        //     }
+            
+        //     char check;
+        //     switch(n){
+        //         case ')':
+        //             check=stack.pop();
+        //             if(check=='{' || check=='['){
+        //                 return false;
+        //             }
+        //             break;
+        //         case '}':
+        //             check=stack.pop();
+        //             if(check=='(' || check=='['){
+        //                 return false;
+        //             }
+        //             break;
+        //         case ']':
+        //             check=stack.pop();
+        //             if(check=='(' || check=='{'){
+        //                 return false;
+        //             }
+        //             break;
+        //     }
+        // }
+        // return (stack.isEmpty());
+        Stack<Character> stack=new Stack<Character>();
+        for(int i=0;i<x.length();i++){
+            if(x.charAt(i)=='{'){
+                stack.push('}');
+            }
+            else if(x.charAt(i)=='('){
+                stack.push(')');
+            }
+            else if(x.charAt(i)=='['){
+                stack.push(']');
+            }
+            else if(stack.isEmpty() || stack.pop()!=x.charAt(i)){
+                return false;
+            }
+        }
+        return stack.isEmpty();
+        
+    }
+}
+
+
+Find duplicates in an array
+
+class Solution {
+    public static ArrayList<Integer> duplicates(int arr[], int n) {
+        // code here
+        HashMap<Integer,Integer> map=new HashMap<Integer,Integer>();
+        for(int i=0;i<n;i++){
+            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+        }
+        ArrayList<Integer> result=new ArrayList<Integer>();
+        for(Integer i:map.keySet()){
+            if(map.get(i)>1){
+                result.add(i);
+            }
+        }
+        if(result.size()==0){
+            result.add(-1);
+        }
+        Collections.sort(result);
+        return result;
+    }
+}
+
+Minimize the Heights II
+
+class Solution {
+    int getMinDiff(int[] arr, int n, int k) {
+        // code here
+        Arrays.sort(arr);
+        if(arr.length==1){
+            return 0;
+        }
+        int ans=arr[n-1]-arr[0];
+        int min=arr[0];
+        int max=arr[n-1];
+        for(int i=1;i<n;i++){
+            if (arr[i]-k < 0)
+                continue;
+ 
+            min=Math.min(arr[0]+k,arr[i]-k);
+            max=Math.max(arr[i-1]+k, arr[n-1]-k);
+            ans=Math.min(ans,max-min);
+        }
+        return ans;
+    
+        
+    }
+}
+
+Equilibrium Point
+class Solution {
+
+    
+    // a: input array
+    // n: size of array
+    // Function to find equilibrium point in the array.
+    public static int equilibriumPoint(long arr[], int n) {
+
+ 
+        long[] pre=new long[n];
+        long[] post=new long[n];
+        int result=-1;
+        pre[0]=arr[0];
+        for(int i=1;i<n;i++){
+            pre[i]=pre[i-1]+arr[i];
+        }
+        post[n-1]=arr[n-1];
+        for(int j=n-2;j>=0;j--){
+            post[j]=post[j+1]+arr[j];
+        }
+        for(int k=0;k<n;k++){
+            if(pre[k]==post[k]){
+                result=k+1;
+                break;
+            }
+        }
+        return result;
+    }
+}
+
+
+Remove loop in Linked List
+
+class Solution
+{
+    //Function to remove a loop in the linked list.
+    public static void removeLoop(Node head){
+        // code here
+        remove the loop without losing any nodes
+        HashSet<Node> s = new HashSet<Node>();
+        Node prev = null;
+        while (head != null) {
+            if (s.contains(head)) {
+                prev.next = null;
+                return ;
+            }
+            else {
+                s.add(head);
+                prev = head;
+                head = head.next;
+            }
+        }
+ 
+        return ;
+}}
+
+
+
+Detect Loop in linked list
+class Solution {
+    //Function to check if the linked list has a loop.
+    public static boolean detectLoop(Node head){
+        // Add code here
+        Node slow=head;
+        Node fast=head;
+        
+        while(fast.next!=null && fast.next.next!=null){
+            slow=slow.next;
+            fast=fast.next.next;
+            if(slow==fast){
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+
+Nth node from end of linked list
+
+class Solution
+{
+    //Function to find the data of nth node from the end of a linked list.
+    int getNthFromLast(Node head, int n)
+    {
+    	// Your code here
+    	
+    	Node temp=head;
+    	int count=0;
+    	while(temp!=null){
+    	    count++;
+    	    temp=temp.next;
+    	}
+    	if(n>count){
+    	    return -1;
+    	}
+    	for(int i=1;i<count-n+1;i++){
+    	    head=head.next;
+    	}
+    	int num=head.data;
+    // 	System.out.println(head.data);
+    	return num;
+    }
+}
+
+
+Reverse array in groups
+class Solution {
+    //Function to reverse every sub-array group of size k.
+    void reverseInGroups(ArrayList<Integer> arr, int n, int k) {
+        // code here
+        int i=0;
+        // int j=0;
+    
+        ArrayList<Integer> arr2=new ArrayList<Integer>();
+        ArrayList<Integer> arr3=new ArrayList<Integer>();
+        while(i<arr.size()){
+
+            if(arr2.size()==k ){
+                Collections.reverse(arr2);
+                arr3.addAll(arr2);
+ 
+                arr2.clear();
+                arr2.add(arr.get(i));
+       
+            }
+     
+            else{
+                arr2.add(arr.get(i));
+            }
+            i++;
+        
+        }
+        Collections.reverse(arr2);
+        arr3.addAll(arr2);
+        arr.clear();
+        arr.addAll(arr3);
+
+    }
+}
+
+
+Check if two arrays are equal or not
+class Solution{
+    //Function to check if two arrays are equal or not.
+    public static boolean check(long A[],long B[],int N)
+    {
+        //Your code here
+        Arrays.sort(A);
+        Arrays.sort(B);
+        boolean flag=true;
+       
+            for(int i=0;i<A.length;i++){
+                if(A[i]!=B[i]){
+                    flag=false;
+                }
+              
+            }
+        
+        return flag;
+    }
+}
+
+
+Check if Linked List is Palindrome
+class Solution
+{
+    //Function to check whether the list is palindrome.
+    boolean isPalindrome(Node head) 
+    {
+        //Your code here
+        Node temp=head;
+        ArrayList<Integer> arr=new ArrayList<Integer>();
+        while(temp!=null){
+            arr.add(temp.data);
+            temp=temp.next;
+        }
+        ArrayList<Integer> arr2=new ArrayList<Integer>(arr);
+        Collections.reverse(arr);
+        if(arr2.equals(arr)){
+            return true;
+        }
+        return false;
+    }    
+}
+
+
+
+Reverse words in a given string
+class Solution 
+{
+    //Function to reverse words in a given string.
+    String reverseWords(String S)
+    {
+        // code here 
+        String[] temp=S.split("\\.");
+        // for(int i=0;i<temp.length;i++){
+        //     System.out.println(temp[i]);
+        // }
+        // System.out.println(temp[0]);
+        // Collections.reverse(Arrays.asList(temp));
+        String result="";
+        for(int i=temp.length-1;i>=0;i--){
+            result+=temp[i]+".";
+            
+        }
+        
+        return result.substring(0,result.length()-1);
+        // return new StringBuilder(S).reverse().toString();
+    }
+}
+
+
+Reverse a linked list
+class Solution {
+    // Function to reverse a linked list.
+    Node reverseList(Node head) {
+        if (head == null) {
+            // Base case: If the list is empty, return null.
+            return null;
+        }
+        
+        Node reversedHead = reverseList(head.next);
+        
+        // Print the data of the current node.
+        System.out.print(head.data+" ");
+        
+        // Return the new head of the reversed list.
+        return reversedHead;
+    }
+}
+
+
+Anagram
+class Solution
+{    
+    //Function is to check whether two strings are anagram of each other or not.
+    public static boolean isAnagram(String a,String b)
+    {
+        
+        // Your code here
+        if(a.length()!=b.length()){
+            return false;
+        }
+        char[] arr1=a.toCharArray();
+        Arrays.sort(arr1);
+        char[] arr2=b.toCharArray();
+        Arrays.sort(arr2);
+        for(int i=0;i<a.length();i++){
+            if(arr1[i]!=arr2[i]){
+                return false;
+            }
+        }
+        
+        return true;
+    }
+}
+
+
+Stock buy and sell
+class Solution {
+    ArrayList<ArrayList<Integer>> stockBuySell(int A[], int n) {
+        ArrayList<ArrayList<Integer>> result = new ArrayList<>();
+        
+        int buy = 0;
+        int sell = 0;
+        int i = 0;
+        
+        while (i < n - 1) {
+            // Find local minima as buy day
+            while (i < n - 1 && A[i] >= A[i + 1]) {
+                i++;
+            }
+            buy = i;
+            
+            // If we reach the end, break the loop
+            if (i == n - 1) {
+                break;
+            }
+            
+            // Find local maxima as sell day
+            while (i < n - 1 && A[i] <= A[i + 1]) {
+                i++;
+            }
+            sell = i;
+            
+            // Add buy and sell days to result
+            ArrayList<Integer> temp = new ArrayList<>();
+            temp.add(buy);
+            temp.add(sell);
+            result.add(temp);
+        }
+        
+        return result;
+    }
+}
+
+
+Array Subset of another array
+class Compute {
+    public String isSubset( long a1[], long a2[], long n, long m) {
+        HashMap<Long,Integer> map=new HashMap<Long,Integer>();
+        for(int i=0;i<a1.length;i++){
+            map.put(a1[i],map.getOrDefault(a1[i],0)+1);
+        }
+  
+        for(int j=0;j<a2.length;j++){
+            if(!map.containsKey(a2[j]) || map.get(a2[j])<=0){
+                return "No";
+            }
+          
+            map.put(a2[j],map.get(a2[j])-1);
+      
+        }
+
+        return "Yes";
+    }
+}
+
+
+Rearrange Array Alternately
+
+class Solution{
+    
+    // temp: input array
+    // n: size of array
+    //Function to rearrange  the array elements alternately.
+    public static void rearrange(long arr[], int n){
+        
+        // Your code here
+
+        long[] result=new long[n];
+        int i=0;
+        int j=n-1;
+        for(int k=0;k<n;k++){
+            if(k%2==0){
+                result[k]=arr[j];
+                j--;
+            }
+            else{
+                result[k]=arr[i];
+                i++;
+            }
+            
+        }
+        // arr=result;
+        for(int p=0;p<n;p++){
+            arr[p]=result[p];
+        }
+        
+   
+        
+    }
+    
+}
+
+
+
+Remove duplicate element from sorted Linked List
+
+class GfG
+{
+    //Function to remove duplicates from sorted linked list.
+    Node removeDuplicates(Node head)
+    {
+	// Your code here	
+	Node g=head;
+	while(g.next!=null){
+	    Node h=g.next;
+	    if(g.data==h.data){
+	        g.next=h.next;
+	        h.next=null;
+	    }
+	    else{
+	        g=g.next;
+	    }
+	}
+	return head;
+    }
+}
+
+
+First element to occur k times
+class Solution
+{
+    public int firstElementKTime(int[] a, int n, int k) { 
+        int[] arr=new int[1000];
+        int count=-1;
+        for(int i=0;i<a.length;i++){
+            arr[a[i]]++;
+            if(arr[a[i]]==k){
+                count=a[i];
+                break;
+            }
+        }
+        return count;
+    } 
+}
+//use LinkedHashMap easy
+
+
+Find all pairs with a given sum
+//User function Template for Java
+
+/*
+class pair  {  
+    long first, second;  
+    public pair(long first, long second)  
+    {  
+        this.first = first;  
+        this.second = second;  
+    }  
+}
+*/
+
+class Solution {
+    public pair[] allPairs( long A[], long B[], long N, long M, long X) {
+        HashMap<Long,Long> map=new HashMap<Long,Long>();
+        // Your code goes here 
+       
+        for(int i=0;i<N;i++){
+            for(int j=0;j<M;j++){
+                long sum=A[i]+B[j];
+                if(sum==X){
+                    map.put(A[i],B[j]);
+                }
+            }
+        }
+        // long[long[]] result=new long[map.size()*2];
+        ArrayList<pair> arr=new ArrayList<pair>();
+
+        for(Long i:map.keySet()){
+            arr.add(new pair(i,map.get(i)));
+        }
+        
+         Collections.sort(arr, Comparator.comparingLong(pair -> pair.first));
+        
+        
+        pair[] result=new pair[arr.size()];
+        for(int i=0;i<arr.size();i++){
+            result[i]=arr.get(i);
+        }
+        return result;
+    }
+}
+
+Given a linked list of 0s, 1s and 2s, sort it.(sorting linked list)
+class Solution
+{
+    //Function to sort a linked list of 0s, 1s and 2s.
+    static Node segregate(Node head)
+    {
+        // add your code here
+        Node g=head;
+        int temp=0;
+        while(g!=null){
+            Node h=g.next;
+            while(h!=null){
+                if(g.data>h.data){
+                    temp=g.data;
+                    g.data=h.data;
+                    h.data=temp;
+                }
+                h=h.next;
+            }
+            g=g.next;
+        }
+        return head;
+    }
+}
+
+
+Print the pattern | Set-1You are given a number N. You need to print the pattern for the given value of N.
+
+For N = 2 the pattern will be 
+2 2 1 1
+2 1
+
+For N = 3 the pattern will be 
+3 3 3 2 2 2 1 1 1
+3 3 2 2 1 1
+3 2 1
+class GfG
+{
+    void printPat(int n)
+    {
+         // Your code here
+         for(int i=n;i>=1;i--){
+             int p=n;
+             while(p>=1){
+                 for(int j=1;j<=i;j++){
+                     System.out.print(p+" ");
+                 }
+                 p--;
+             }
+            System.out.print("$");
+         }
+      }
+}
+
+
+Find length of Loop
+class Solution
+{
+    //Function to find the length of a loop in the linked list.
+    static int countNodesinLoop(Node head)
+    {
+        //Add your code here.
+        Node temp=head;
+        ArrayList<Node> arr=new ArrayList<Node>();
+        int count=0;
+        int cc=0;
+        while(temp!=null){
+            if(arr.contains(temp)){
+                cc=arr.indexOf(temp);
+                // break;
+                return count-cc;
+            }
+            else{
+                arr.add(temp);
+                temp=temp.next;
+                count++;
+            }
+        }
+ 
+        if(count==1)
+        {
+            return 1;
+        }
+        else{
+            return 0;
+        }
+    }
+}
+
+
+Convert array into Zig-Zag fashion
+class Solution{
+    public void zigZag(int a[], int n){
+
+        for(int i=0;i<a.length-1;i++){
+            if(i%2==0){
+                if(a[i]>a[i+1]){
+                     int temp=a[i];
+                     a[i]=a[i+1];
+                     a[i+1]=temp;
+                }
+            }
+            else{
+                if(a[i]<a[i+1]){
+                     int temp=a[i];
+                     a[i]=a[i+1];
+                     a[i+1]=temp;
+                }
+            }
+        }
+
+    }
+}
+
+
+
+Reverse a string using Stack
+class Solution {
+    
+    public String reverse(String S){
+        //code here
+        Stack<Character> stack=new Stack<Character>();
+        for(int i=0;i<S.length();i++){
+            stack.push(S.charAt(i));
+        }
+        String ss="";
+        while(stack.isEmpty()!=true){
+            // System.out.print(stack.pop());
+            ss+=stack.pop();
+        }
+        return ss;
+    }
+
+}
+
+
+Find the element that appears once in sorted array
+class Solution 
+{
+    int findOnce(int arr[], int n)
+    {
+        // Complete this function
+        HashMap<Integer,Integer> map=new HashMap<Integer,Integer>();
+        for(int i=0;i<arr.length;i++){
+            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+        }
+        for(Integer i:map.keySet()){
+            if(map.get(i)==1){
+                return i;
+            }
+        }
+        return -1;
+    }
+}
+
+
+Minimize the sum of product
+class Solution {
+
+    public long minValue(long a[], long b[], long n) 
+    {
+        // Your code goes here
+        ArrayList<Long> arr1=new ArrayList<Long>();
+        ArrayList<Long> arr2=new ArrayList<Long>();
+        for(int i=0;i<a.length;i++){
+            arr1.add(a[i]);
+        }
+        for(int j=0;j<b.length;j++){
+            arr2.add(b[j]);
+        }
+        Collections.sort(arr1);
+        Collections.sort(arr2);
+        long result=0;
+        while(arr1.size()>0 && arr2.size()>0){
+            result+=arr1.get(0)*arr2.get(arr2.size()-1);
+            arr1.remove(0);
+            arr2.remove(arr2.size()-1);
+        }
+        return result;
+    }
+}
+
+
+Maximize Toys
+class Solution{
+    static int toyCount(int N, int K, int arr[])
+    {
+        // code here
+        Arrays.sort(arr);
+        int sum=0;
+        int count=0;
+        for(int i=0;i<N;i++){
+            if(sum+arr[i]<=K){
+                sum+=arr[i];
+                count++;
+            }
+            else{
+                break;
+            }
+        }
+        return count;
+    }
+}
+
+
+Find first repeated character
+class Solution 
+{ 
+    String firstRepChar(String s) 
+    { 
+        // code here
+        HashMap<Character,Integer> map=new HashMap<Character,Integer>();
+        String result="";
+        for(int i=0;i<s.length();i++){
+         
+                map.put(s.charAt(i),map.getOrDefault(s.charAt(i),0)+1);
+                if(map.get(s.charAt(i))>1){
+                    result+=s.charAt(i);
+                    break;
+                }
+            
+        }
+        if(result.length()==0){
+            result+="-1";
+        }
+        return result;
+    }
+} 
+
+
+Delete node in Doubly Linked List
+
+//User function Template for Java
+
+/* Structure of linkedlist node
+class Node
+{
+	int data;
+	Node next;
+	Node prev;
+	Node(int d)
+	{
+		data = d;
+		next = prev = null;
+	}
+}
+*/
+class Solution
+{
+    // function returns the head of the linkedlist
+    Node deleteNode(Node head,int x)
+    {
+	// Your code here
+	int count=0;
+	Node temp=head;
+	Node tail=null;
+	while(temp!=null){
+	    count++;
+	    tail=temp;
+	    temp=temp.next;
+	}
+	
+	if(x==1){
+	    Node g=head;
+	    head=head.next;
+	    head.prev=null;
+	    g.next=null;
+	}
+	else if(count==x){
+	    Node g=tail;
+	    tail=tail.prev;
+	    tail.next=null;
+	    g.prev=null;
+	}
+	else{
+	    Node g=head;
+	    for(int i=1;i<x-1;i++){
+	        g=g.next;
+	        
+	    }
+	    Node h=g.next;
+	    g.next=h.next;
+	    h.next.prev=g;
+	    h.prev=null;
+	    h.next=null;
+	}
+	
+	return head;
+    }
+}
+
+
+Frequency Game
+class Solution {
+    // Function to find largest number with minimum frequency
+    public static int LargButMinFreq(int arr[], int n) {
+        // Your code here
+        HashMap<Integer,Integer> map=new HashMap<Integer,Integer>();
+        for(int i=0;i<n;i++){
+            map.put(arr[i],map.getOrDefault(arr[i],0)+1);
+        }
+        ArrayList<Integer> arr1=new ArrayList<Integer>();
+        int min=Integer.MAX_VALUE;
+        for(Integer i:map.keySet()){
+            if(map.get(i)<min){
+                min=map.get(i);
+                
+            }
+        }
+        for(Integer i:map.keySet()){
+            if(map.get(i)==min){
+                arr1.add(i);
+            }
+        }
+        Collections.sort(arr1);
+        if(arr1.size()==0){
+            return 0;
+        }
+        return arr1.get(arr1.size()-1);
+    }
+}
+
+
+
+Maximum no of 1's 
+rowclass Sol
+{
+    public static int maxOnes (int Mat[][], int N, int M)
+    {
+        // your code here
+        int resultrow=0;
+        int noOf1s=Integer.MIN_VALUE;
+        for(int i=0;i<N;i++){
+            int[] temp=Mat[i];
+            int count=0;
+            for(int j=0;j<temp.length;j++){
+                // int count=0;
+                if(temp[j]==1){
+                    count++;
+                }
+            }
+            if(count>noOf1s){
+                noOf1s=count;
+                resultrow=i;
+            }
+            
+        }
+        return resultrow;
+    }
+}
+
+
+Minimize the sum
+
+//priorityQueue will sort the elements in assending order by default
+class Solution {
+    long minimizeSum(int N, int arr[]) {
+        // code here
+        PriorityQueue<Integer> pq = new PriorityQueue<>();
+        
+        for(int i : arr)
+        pq.add(i);
+        
+        //System.out.println(pq);
+        
+        int sum = 0;
+        
+        while(true){
+            if(pq.size() == 1)
+            break;
+            int temp = pq.poll() + pq.poll();
+            sum += temp;
+            pq.add(temp);
+            
+            // pq.offerFirst(temp);
+        }
+        
+        return (long)sum;
+    }
+}
+
+
+Unique rows in boolean matrix
+/*Complete the given function*/
+class GfG
+{
+    public static ArrayList<ArrayList<Integer>> uniqueRow(int a[][],int r, int c)
+    {
+        //add code here.
+        ArrayList<ArrayList<Integer>> result=new ArrayList<ArrayList<Integer>>();
+        for(int i=0;i<a.length;i++){
+            ArrayList<Integer> arr=new ArrayList<Integer>();
+            for(int j=0;j<c;j++){
+                arr.add(a[i][j]);
+            }
+            if(!result.contains(arr)){
+                result.add(arr);
+            }
+        }
+        return result;
+    }
+}
+
+
+
+Modify Linked List-1
+class Solution
+{
+    public static Node modifyTheList(Node head)
+    {
+        Node temp=head;
+        ArrayList<Integer> arr=new ArrayList<Integer>();
+        while(temp!=null){
+            arr.add(temp.data);
+            temp=temp.next;
+        }
+        int i=0;
+        int j=arr.size()-1;
+        ArrayList<Integer> arr2=new ArrayList<Integer>();
+        while(i<j){
+    
+            arr.set(j,arr.get(j)-arr.get(i));
+            i++;
+            j--;
+        }
+        Collections.reverse(arr);
+        Node temp2=head;
+        int k=0;
+        while(temp2!=null){
+            temp2.data=arr.get(k);
+            temp2=temp2.next;
+            k++;
+        }
+        return head;
+    }
+}
+
+
+Linked List that is Sorted Alternatingly
+class Solution {
+    
+   public Node sort(Node head){
+        //your code here, return the head of the sorted list
+        Node temp1=head;
+        Node temp2=null;
+        int temp3=0;
+        while(temp1!=null){
+            temp2=temp1.next;
+            while(temp2!=null){
+                if(temp1.data>temp2.data){
+                    temp3=temp1.data;
+                    temp1.data=temp2.data;
+                    temp2.data=temp3;
+                } 
+                 temp2=temp2.next;
+            }
+            temp1=temp1.next;
+        }
+        return head;
+   }
+
+
+}
+
+
+Search in Linked List
+class Solution {
+    static boolean searchKey(int n, Node head, int key) {
+        // Code here
+        boolean flag=false;
+        Node temp=head;
+        while(temp!=null){
+            if(temp.data==key){
+                flag=true;
+            }
+            temp=temp.next;
+        }
+        return flag;
+    }
+}
+
+
+Majority Vote
+
+class Solution {
+    public static ArrayList<Integer> Solve(int n, int[] nums) {
+        // code here
+        HashMap<Integer,Integer> map=new HashMap<Integer,Integer>();
+        for(int i=0;i<n;i++){
+            map.put(nums[i],map.getOrDefault(nums[i],0)+1);
+        }
+        int temp=n/3;
+        ArrayList<Integer> arr=new ArrayList<Integer>();
+        for(int i:map.keySet()){
+            if(map.get(i)>temp){
+                arr.add(i);
+            }
+        }
+        if(arr.size()==0){
+            arr.add(-1);
+        }
+        return arr;
+    }
+}
+        
+
+
+Introduction to Linked List
+class Solution {
+    static Node constructLL(int arr[]) {
+        // code here
+        
+        Node head=null;
+        Node tail=null;
+        for(int i=0;i<arr.length;i++){
+            Node temp=new Node(arr[i]);
+            if(head==null){
+                head=temp;
+                tail=temp;
+            }
+            else{
+                tail.next=temp;
+                tail=temp;
+            }
+        }
+        return head;
+    }
+}
+
+
