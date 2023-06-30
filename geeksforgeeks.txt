@@ -1,4 +1,4 @@
-Subarray with given sum
+1)Subarray with given sum
 
 class Solution
 {
@@ -35,7 +35,7 @@ class Solution
     }
 }
 
-Missing number in array
+2)Missing number in array
 class Solution {
     int missingNumber(int array[], int n) {
 
@@ -52,7 +52,7 @@ class Solution {
 }
 
 
-Kadane's Algorithm
+3)Kadane's Algorithm
 class Solution{
 
     // arr: input array
@@ -79,7 +79,7 @@ class Solution{
 }
 
 
-Leaders in an array
+4)Leaders in an array
 class Solution{
     //Function to find the leaders in the array.
     static ArrayList<Integer> leaders(int arr[], int n){
@@ -103,7 +103,7 @@ class Solution{
 }
 
 
-Majority Element
+5)Majority Element
 Given an array A of N elements. Find the majority element in the array. A majority element in an array A of size N is an element that appears more than N/2 times in the array.
  class Solution
 {
@@ -125,7 +125,7 @@ Given an array A of N elements. Find the majority element in the array. A majori
 }
 
 
-Parenthesis Checker
+6)Parenthesis Checker
 
 class Solution
 {
@@ -190,7 +190,7 @@ class Solution
 }
 
 
-Find duplicates in an array
+7)Find duplicates in an array
 
 class Solution {
     public static ArrayList<Integer> duplicates(int arr[], int n) {
@@ -213,7 +213,7 @@ class Solution {
     }
 }
 
-Minimize the Heights II
+8)Minimize the Heights II
 
 class Solution {
     int getMinDiff(int[] arr, int n, int k) {
@@ -239,7 +239,7 @@ class Solution {
     }
 }
 
-Equilibrium Point
+9)Equilibrium Point
 class Solution {
 
     
@@ -271,7 +271,7 @@ class Solution {
 }
 
 
-Remove loop in Linked List
+10)Remove loop in Linked List
 
 class Solution
 {
@@ -298,7 +298,7 @@ class Solution
 
 
 
-Detect Loop in linked list
+11)Detect Loop in linked list
 class Solution {
     //Function to check if the linked list has a loop.
     public static boolean detectLoop(Node head){
@@ -318,7 +318,7 @@ class Solution {
 }
 
 
-Nth node from end of linked list
+12)Nth node from end of linked list
 
 class Solution
 {
@@ -346,7 +346,7 @@ class Solution
 }
 
 
-Reverse array in groups
+13)Reverse array in groups
 class Solution {
     //Function to reverse every sub-array group of size k.
     void reverseInGroups(ArrayList<Integer> arr, int n, int k) {
@@ -382,7 +382,7 @@ class Solution {
 }
 
 
-Check if two arrays are equal or not
+14)Check if two arrays are equal or not
 class Solution{
     //Function to check if two arrays are equal or not.
     public static boolean check(long A[],long B[],int N)
@@ -404,7 +404,7 @@ class Solution{
 }
 
 
-Check if Linked List is Palindrome
+15)Check if Linked List is Palindrome
 class Solution
 {
     //Function to check whether the list is palindrome.
@@ -428,7 +428,7 @@ class Solution
 
 
 
-Reverse words in a given string
+16)Reverse words in a given string
 class Solution 
 {
     //Function to reverse words in a given string.
@@ -453,7 +453,7 @@ class Solution
 }
 
 
-Reverse a linked list
+17)Reverse a linked list
 class Solution {
     // Function to reverse a linked list.
     Node reverseList(Node head) {
@@ -473,7 +473,7 @@ class Solution {
 }
 
 
-Anagram
+18)Anagram
 class Solution
 {    
     //Function is to check whether two strings are anagram of each other or not.
@@ -499,7 +499,7 @@ class Solution
 }
 
 
-Stock buy and sell
+19)Stock buy and sell
 class Solution {
     ArrayList<ArrayList<Integer>> stockBuySell(int A[], int n) {
         ArrayList<ArrayList<Integer>> result = new ArrayList<>();
@@ -538,7 +538,7 @@ class Solution {
 }
 
 
-Array Subset of another array
+20)Array Subset of another array
 class Compute {
     public String isSubset( long a1[], long a2[], long n, long m) {
         HashMap<Long,Integer> map=new HashMap<Long,Integer>();
@@ -560,7 +560,7 @@ class Compute {
 }
 
 
-Rearrange Array Alternately
+21)Rearrange Array Alternately
 
 class Solution{
     
@@ -598,7 +598,7 @@ class Solution{
 
 
 
-Remove duplicate element from sorted Linked List
+22)Remove duplicate element from sorted Linked List
 
 class GfG
 {
@@ -622,7 +622,7 @@ class GfG
 }
 
 
-First element to occur k times
+23)First element to occur k times
 class Solution
 {
     public int firstElementKTime(int[] a, int n, int k) { 
@@ -641,7 +641,7 @@ class Solution
 //use LinkedHashMap easy
 
 
-Find all pairs with a given sum
+24)Find all pairs with a given sum
 //User function Template for Java
 
 /*
@@ -686,7 +686,7 @@ class Solution {
     }
 }
 
-Given a linked list of 0s, 1s and 2s, sort it.(sorting linked list)
+25)Given a linked list of 0s, 1s and 2s, sort it.(sorting linked list)
 class Solution
 {
     //Function to sort a linked list of 0s, 1s and 2s.
@@ -712,7 +712,7 @@ class Solution
 }
 
 
-Print the pattern | Set-1You are given a number N. You need to print the pattern for the given value of N.
+26)Print the pattern | Set-1You are given a number N. You need to print the pattern for the given value of N.
 
 For N = 2 the pattern will be 
 2 2 1 1
@@ -741,7 +741,7 @@ class GfG
 }
 
 
-Find length of Loop
+27)Find length of Loop
 class Solution
 {
     //Function to find the length of a loop in the linked list.
@@ -776,7 +776,7 @@ class Solution
 }
 
 
-Convert array into Zig-Zag fashion
+28)Convert array into Zig-Zag fashion
 class Solution{
     public void zigZag(int a[], int n){
 
@@ -802,7 +802,7 @@ class Solution{
 
 
 
-Reverse a string using Stack
+29)Reverse a string using Stack
 class Solution {
     
     public String reverse(String S){
@@ -822,7 +822,7 @@ class Solution {
 }
 
 
-Find the element that appears once in sorted array
+30)Find the element that appears once in sorted array
 class Solution 
 {
     int findOnce(int arr[], int n)
@@ -842,7 +842,7 @@ class Solution
 }
 
 
-Minimize the sum of product
+31)Minimize the sum of product
 class Solution {
 
     public long minValue(long a[], long b[], long n) 
@@ -869,7 +869,7 @@ class Solution {
 }
 
 
-Maximize Toys
+32)Maximize Toys
 class Solution{
     static int toyCount(int N, int K, int arr[])
     {
@@ -891,7 +891,7 @@ class Solution{
 }
 
 
-Find first repeated character
+33)Find first repeated character
 class Solution 
 { 
     String firstRepChar(String s) 
@@ -916,7 +916,7 @@ class Solution
 } 
 
 
-Delete node in Doubly Linked List
+34)Delete node in Doubly Linked List
 
 //User function Template for Java
 
@@ -978,7 +978,7 @@ class Solution
 }
 
 
-Frequency Game
+35)Frequency Game
 class Solution {
     // Function to find largest number with minimum frequency
     public static int LargButMinFreq(int arr[], int n) {
@@ -1010,7 +1010,7 @@ class Solution {
 
 
 
-Maximum no of 1's 
+36)Maximum no of 1's 
 rowclass Sol
 {
     public static int maxOnes (int Mat[][], int N, int M)
@@ -1038,7 +1038,7 @@ rowclass Sol
 }
 
 
-Minimize the sum
+37)Minimize the sum
 
 //priorityQueue will sort the elements in assending order by default
 class Solution {
@@ -1068,7 +1068,7 @@ class Solution {
 }
 
 
-Unique rows in boolean matrix
+38)Unique rows in boolean matrix
 /*Complete the given function*/
 class GfG
 {
@@ -1091,7 +1091,7 @@ class GfG
 
 
 
-Modify Linked List-1
+39)Modify Linked List-1
 class Solution
 {
     public static Node modifyTheList(Node head)
@@ -1124,7 +1124,7 @@ class Solution
 }
 
 
-Linked List that is Sorted Alternatingly
+40)Linked List that is Sorted Alternatingly
 class Solution {
     
    public Node sort(Node head){
@@ -1151,7 +1151,7 @@ class Solution {
 }
 
 
-Search in Linked List
+41)Search in Linked List
 class Solution {
     static boolean searchKey(int n, Node head, int key) {
         // Code here
@@ -1168,7 +1168,7 @@ class Solution {
 }
 
 
-Majority Vote
+42)Majority Vote
 
 class Solution {
     public static ArrayList<Integer> Solve(int n, int[] nums) {
@@ -1193,7 +1193,7 @@ class Solution {
         
 
 
-Introduction to Linked List
+43)Introduction to Linked List
 class Solution {
     static Node constructLL(int arr[]) {
         // code here
@@ -1215,7 +1215,7 @@ class Solution {
     }
 }
 
-binary to integer and checking whether it is divisible by 3
+44)binary to integer and checking whether it is divisible by 3
 class Solution {
     int isDivisible(String s) {
         // code here
@@ -1233,7 +1233,7 @@ class Solution {
 }
 
 
-minimum number of jumps
+45)minimum number of jumps
 class Solution{
     static int minJumps(int[] arr){
 
@@ -1276,3 +1276,102 @@ class Solution{
     }
 
 }
+
+
+46)tapping rain water:
+
+class Solution{
+    
+    // arr: input array
+    // n: size of array
+    // Function to find the trapped water between the blocks.
+    static long trappingWater(int arr[], int n) { 
+        // Your code here
+        // int max=0;
+        // int i=0;
+        // int j=n-1;
+        // while(i<j){
+        //     int height=Math.min(arr[i],arr[j]);
+        //     int len=j-i-1;
+        //     int temp=height*len;
+        //     // int result=0;
+        //     for(int k=i+1;k<j-1;k++){
+        //         temp-=arr[k];
+        //     }
+        //     if(temp>max){
+        //         max=temp;
+        //     }
+        //     if (arr[i] < arr[j]) {
+        //         i++;
+        //     } else {
+        //         j--;
+        //     }
+        // }
+        // if(max<0){
+        //     max=0;
+        // }
+        // return (long)max;
+        
+        int left = 0;
+        int right = n - 1;
+        int leftMax = 0;
+        int rightMax = 0;
+        int result = 0;
+        
+    
+        while (left < right) {
+            if (arr[left] <= arr[right]) {
+                if (arr[left] >= leftMax) {
+                    leftMax = arr[left];
+                } else {
+                    result += leftMax - arr[left];
+                }
+                left++;
+            } else {
+                if (arr[right] >= rightMax) {
+                    rightMax = arr[right];
+                } else {
+                    result += rightMax - arr[right];
+                }
+                right--;
+            }
+        }
+
+        return result;
+    } 
+}
+
+// For the given input {3, 0, 0, 2, 0, 4}, let's go through the steps:
+
+//     Initially, left is set to 0 (index of the first element) and right is set to 5 (index of the last element).
+
+//     In the first iteration, arr[left] is 3 and arr[right] is 4. Since arr[left] is less than or equal to arr[right], the code enters the if block.
+
+//     Since arr[left] (3) is greater than leftMax (0), leftMax is updated to 3.
+
+//     The code increments left by 1, so left becomes 1.
+
+//     In the second iteration, arr[left] is 0 and arr[right] is 4. Again, the code enters the if block.
+
+//     Since arr[left] (0) is less than leftMax (3), the code calculates leftMax - arr[left] (3 - 0 = 3) and adds it to result. So result becomes 3.
+
+//     The code increments left by 1, so left becomes 2.
+
+//     In the third iteration, arr[left] is 0 and arr[right] is 4. The code enters the if block.
+
+//     Since arr[left] (0) is less than leftMax (3), the code calculates leftMax - arr[left] (3 - 0 = 3) and adds it to result. So result becomes 6.
+
+//     The code increments left by 1, so left becomes 3.
+
+//     In the fourth iteration, arr[left] is 2 and arr[right] is 4. The code enters the if block.
+
+//     Since arr[left] (2) is less than or equal to leftMax (3), the code calculates leftMax - arr[left] (3 - 2 = 1) and adds it to result. So result becomes 7.
+
+//     The code increments left by 1, so left becomes 4. 
+
+// then it check 0<4 so again result+=leftmax-arr[i] that is result=result+3-0;
+
+// so result=7+3-0 so result=10 then loop breaks and return 10;
+
+
+
