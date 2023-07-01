@@ -1404,3 +1404,48 @@ class Solution {
 
 }
 
+48)stock span problem using stack:
+
+class Solution
+{
+    //Function to calculate the span of stockâ€™s price for all n days.
+    public static int[] calculateSpan(int price[], int n)
+    {
+        // Your code here
+        Stack<Integer> stack =new Stack<>();
+        int ans[]=new int[n];
+        
+        for(int i=0;i<price.length;i++){
+            while (!stack.isEmpty() && (price[stack.peek()] <= price[i])){
+                stack.pop();
+            }
+            if(stack.isEmpty()){
+                ans[i]=(i+1);
+            }
+            else{
+                ans[i]=i-stack.peek();
+                
+            }
+            stack.push(i);
+        }
+        return ans;//from comments took this code
+    }
+    
+}
+//     It defines a class named Solution.
+
+    // The calculateSpan function takes two parameters: an array of price representing the stock prices for n days and an integer n representing the number of days.
+
+    // It initializes an empty stack called stack and an array ans of size n to store the span values for each day.
+
+    // The code then iterates through the price array using a for loop.
+
+    // Inside the loop, it checks if the stack is not empty and if the price at the top of the stack (using price[stack.peek()]) is less than or equal to the current price price[i]. If this condition is true, it means that the stock price on the current day is greater than the prices of the previous days. Therefore, it pops the element from the stack until either the stack becomes empty or the price at the top of the stack is greater than the current price.
+
+    // After the while loop, it checks if the stack is empty. If it is empty, it means that there are no previous days where the price was greater than the current day. So, it sets the span value for the current day (ans[i]) as the number of days seen so far (i + 1).
+
+    // If the stack is not empty, it calculates the span value for the current day as the difference between the current day index (i) and the index at the top of the stack (stack.peek()).
+
+    // Finally, it pushes the current day index (i) onto the stack.
+
+    // After the loop finishes, it returns the ans array, which contains the span values for each day.
