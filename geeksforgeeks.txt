@@ -1449,3 +1449,77 @@ class Solution
     // Finally, it pushes the current day index (i) onto the stack.
 
     // After the loop finishes, it returns the ans array, which contains the span values for each day.
+
+49)count inversions
+
+
+//User function Template for Java
+
+class Solution
+{
+    // arr[]: Input Array
+    // N : Size of the Array arr[]
+    //Function to count inversions in the array.
+    static long inversionCount(long arr[], long N)
+    {
+        // Your Code Here
+    //     int n=(int)N;
+    //     long result=0;
+    //     for(int i=0;i<n-1;i++){
+    //         for(int j=i+1;j<n;j++){
+    //             if(arr[i]>arr[j]){
+    //                 result++;
+    //             }
+    //         }
+    //     }
+    //     return result;
+    // }
+    return mergeSortAndCount(arr, 0, (int) (N - 1));
+    }
+
+    static long mergeSortAndCount(long arr[], int start, int end) {
+        long count = 0;
+        if (start < end) {
+            int mid = (start + end) / 2;
+            count += mergeSortAndCount(arr, start, mid);
+            count += mergeSortAndCount(arr, mid + 1, end);
+            count += merge(arr, start, mid, end);
+        }
+        return count;
+    }
+
+    static long merge(long arr[], int start, int mid, int end) {
+        long count = 0;
+
+        int n1 = mid - start + 1;
+        int n2 = end - mid;
+
+        long[] left = new long[n1];
+        long[] right = new long[n2];
+
+        for (int i = 0; i < n1; i++)
+            left[i] = arr[start + i];
+        for (int j = 0; j < n2; j++)
+            right[j] = arr[mid + 1 + j];
+
+        int i = 0, j = 0, k = start;
+        while (i < n1 && j < n2) {
+            if (left[i] <= right[j]) {
+                arr[k++] = left[i++];
+            } else {
+                arr[k++] = right[j++];
+                count += n1 - i; // Count inversions
+            }
+        }
+
+        while (i < n1) {
+            arr[k++] = left[i++];
+        }
+
+        while (j < n2) {
+            arr[k++] = right[j++];
+        }
+
+        return count;
+    }
+}
